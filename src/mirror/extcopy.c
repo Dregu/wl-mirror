@@ -242,7 +242,7 @@ static const struct ext_image_copy_capture_session_v1_listener capture_session_l
 static void on_capture_frame_transform(void * data, struct ext_image_copy_capture_frame_v1 * frame, uint32_t transform) {
     ctx_t * ctx = (ctx_t *)data;
     extcopy_mirror_backend_t * backend = (extcopy_mirror_backend_t *)ctx->mirror.backend;
-
+    ctx->mirror.current_target->transform = transform;
     wlm_log_debug(ctx, "mirror-extcopy::on_capture_frame_transform(): transform = %d\n", transform);
     (void)frame;
     (void)backend;
